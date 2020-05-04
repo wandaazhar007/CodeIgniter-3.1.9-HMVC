@@ -27,8 +27,12 @@ class Produk extends MX_Controller
         foreach ($list as $value) {
             $row = array();
             $row[] = $value['idproduct'];
+            $row[] = $value['barcode'];
             $row[] = $value['name'];
-            $action = '<a style="color:white;" id="idproduct" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduct" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
+            $row[] = $value['price'];
+            $row[] = $value['stock'];
+            $row[] = $value['expired_date'];
+            $action = '<a style="color:white;" id="idproduct" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduct" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
 
             $row[] = $action;
             $data[] = $row;

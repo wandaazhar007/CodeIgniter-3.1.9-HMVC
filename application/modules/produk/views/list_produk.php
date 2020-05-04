@@ -9,11 +9,13 @@
                 <table id="tabel_produk" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th width="10%">No</th>
-                            <th width="55%">Nama Produk</th>
-                            <!-- <th width="55%">Stok</th>
-                            <th width="55%">Expired Date</th> -->
-                            <th width="25%">Aksi</th>
+                            <th width="5%">No</th>
+                            <th width="10%">Barcode</th>
+                            <th width="30%">Nama Produk</th>
+                            <th width="10%">Price</th>
+                            <th width="10%">Stok</th>
+                            <th width="10%">Expired Date</th>
+                            <th width="20%">Aksi</th>
                         </tr>
                     </thead>
                 </table>

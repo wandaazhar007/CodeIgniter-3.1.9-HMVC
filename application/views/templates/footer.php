@@ -272,7 +272,10 @@
 				"url": "<?= base_url() ?>produk/getDataProduk/",
 				"type": "POST"
 			},
-
+			"aLengthMenu": [
+				[2, 10, 50],
+				[2, 10, 50]
+			], // Combobox Limit
 			"columnDefs": [{
 					"targets": [0],
 					"searchable": true,
@@ -285,8 +288,8 @@
 				},
 				{
 					"targets": [2],
-					"searchable": false,
-					"sortable": false
+					"searchable": true,
+					"sortable": true
 				}
 			],
 
