@@ -11,8 +11,8 @@
                         <tr>
                             <th width="10%">No</th>
                             <th width="55%">Nama Produk</th>
-                            <th width="55%">Stok</th>
-                            <th width="55%">Expired Date</th>
+                            <!-- <th width="55%">Stok</th>
+                            <th width="55%">Expired Date</th> -->
                             <th width="25%">Aksi</th>
                         </tr>
                     </thead>

@@ -17,7 +17,7 @@ class M_produk extends CI_Model
 
     function sql_produk()
     {
-        $this->db->select("idproduct,name,price,stock,expired_date", false)
+        $this->db->select("idproduct,name", false)
             ->from("product");
     }
 

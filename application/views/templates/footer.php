@@ -255,9 +255,13 @@
 		})
 	})
 </script>
+
 <script type="text/javascript">
+	var save_method; //for save method string
+	var oTable;
 	$(document).ready(function() {
 		oTable = $('#tabel_produk').DataTable({
+
 			"processing": true,
 			"serverSide": true,
 			//"lengthChange": false,
@@ -268,38 +272,24 @@
 				"url": "<?= base_url() ?>produk/getDataProduk/",
 				"type": "POST"
 			},
-			"columns": [{
-					"data": "idproduct"
+
+			"columnDefs": [{
+					"targets": [0],
+					"searchable": true,
+					"sortable": true
 				},
 				{
-					"data": "name"
+					"targets": [1],
+					"searchable": true,
+					"sortable": true
 				},
 				{
-					"data": "price"
-				},
-				{
-					"data": "stock"
-				},
-				{
-					"data": "expired_date"
+					"targets": [2],
+					"searchable": false,
+					"sortable": false
 				}
 			],
-			// "columnDefs": [{
-			// 		"targets": [0],
-			// 		"searchable": true,
-			// 		"sortable": true
-			// 	},
-			// 	{
-			// 		"targets": [1],
-			// 		"searchable": true,
-			// 		"sortable": true
-			// 	},
-			// 	{
-			// 		"targets": [2],
-			// 		"searchable": false,
-			// 		"sortable": false
-			// 	}
-			// ],
+
 		});
 	});
 </script>

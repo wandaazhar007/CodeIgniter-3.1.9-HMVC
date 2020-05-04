@@ -8,6 +8,7 @@ class Produk extends MX_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('m_produk');
+        $this->load->library('datatables');
     }
 
     function index()
@@ -27,10 +28,7 @@ class Produk extends MX_Controller
             $row = array();
             $row[] = $value['idproduct'];
             $row[] = $value['name'];
-            $row[] = $value['price'];
-            $row[] = $value['stock'];
-            $row[] = $value['expired'];
-            $action = '<a style="color:white;" id="idproduk" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduk" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
+            $action = '<a style="color:white;" id="idproduct" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduct" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
 
             $row[] = $action;
             $data[] = $row;
@@ -39,8 +37,16 @@ class Produk extends MX_Controller
             "draw" => $_POST['draw'],
             "recordsTotal" => $this->m_produk->count_all_produk(),
             "recordsFiltered" => $this->m_produk->count_filtered_produk(),
-            "data" => $data,
+            "data" => $data
         );
         echo json_encode($output);
+    }
+
+    function json()
+    {
+
+        $this->datatables->select('*');
+        $this->datatables->from('product');
+        return print_r($this->datatables->generate());
     }
 }
