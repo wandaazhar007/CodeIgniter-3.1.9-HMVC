@@ -32,8 +32,8 @@ class Produk extends MX_Controller
             $row[] = $value['price'];
             $row[] = $value['stock'];
             $row[] = $value['expired_date'];
-            $action = '<a style="color:white;" id="idproduct" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduct" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
-
+            //$action = '<a style="color:white;" class="btn btn-primary btn-xs view_data" data-toggle="modal" data-target="#exampleModal" id="22"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a> <a style="color:white" id="idproduct" class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</a>';
+            $action = '<a style="color:white;"data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-xs view_data"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Update</a>';
             $row[] = $action;
             $data[] = $row;
         }
@@ -53,4 +53,27 @@ class Produk extends MX_Controller
         $this->datatables->from('product');
         return print_r($this->datatables->generate());
     }
+
+    function getDetail()
+    {
+        $produkData = $this->input->post('detailModal');
+        if (isset($produkData) and !empty($produkData)) {
+            $records = $this->m_produk->getModalProduk($produkData);
+            $output = '';
+
+            foreach ($records->result_array() as $row) {
+                $output .= '
+              <h1> ' . $row["poliklinik"] . '</h1>
+				
+				      ';
+            }
+            echo $output;
+        } else {
+            echo '<h3 align="center">' . 'Produk Tidak Ditemukan' . '</h3>';
+        }
+    }
+
+    // <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+    //             Launch Default Modal
+    //           </button>
 }

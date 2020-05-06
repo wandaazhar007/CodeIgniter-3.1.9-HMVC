@@ -296,3 +296,23 @@
 		});
 	});
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#tabel_produk').DataTable();
+		$('#tabel_produk').on('click', '.view_data', function() {
+			var produkData = $(this).attr('id');
+			$.ajax({
+				url: "<?php echo base_url() ?>produk/getDetail",
+				method: "POST",
+				data: {
+					produkData: produkData
+				},
+				success: function(data) {
+					$('#resultProduk').html(data);
+					$('#detailModal').modal('show');
+				}
+			});
+		});
+	});
+</script>

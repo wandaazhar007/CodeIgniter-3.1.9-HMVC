@@ -64,4 +64,12 @@ class M_produk extends CI_Model
         $query = $this->db->get();
         return $query->num_rows();
     }
+
+    function getModalProduk($produkData)
+    {
+        $this->db->select('*');
+        $this->db->where('idproduct', $produkData);
+        $res2 = $this->db->get('product');
+        return $produkData;
+    }
 }
